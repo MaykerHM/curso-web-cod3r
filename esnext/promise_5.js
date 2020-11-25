@@ -1,9 +1,14 @@
 function funcionarOuNao(valor, chanceErro) {
     return new Promise((resolve, reject) => {
-        if(Math.random() < chanceErro) {
-            reject('Ocorreu um erro!')
-        } else {
-            resolve(valor)
+        try {
+            con.log('temp')
+            if(Math.random() < chanceErro) {
+                reject('Ocorreu um erro!')
+            } else {
+                resolve(valor)
+            }
+        } catch(e) {
+            reject(e)
         }
     })
 }
