@@ -1,0 +1,6 @@
+db.estados.find()
+db.estados.find().pretty()
+db.estados.findOne()
+db.estados.findOne({sigla: "RJ"})
+db.estados.findOne({sigla: "RJ"}).pretty()
+db.estados.find({$or: [{sigla: "RJ"}, {sigla: "AC"}]}).pretty()

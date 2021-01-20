@@ -1,0 +1,34 @@
+db.estados.insert({
+    nome: "São Paulo",
+    sigla: "SP",
+    regiao: "Sudeste",
+    cidades: [{
+        _id: ObjectId(),
+        nome: "Campinas",
+        area: 795.7,
+        prefeito: "Jonas Donizette",
+        populacao: 1081000
+    }, {
+        _id: ObjectId(),
+        nome: "Guarulhos",
+        populacao: 1325000
+    }, {
+        _id: ObjectId(),
+        nome: "Sorocaba",
+        distanciaCapital: 87,
+        populacao: 644919
+    }]
+})
+
+// Adicionei _id depois, mas com $[] ficam todos com o mesmo _id
+
+db.estados.update(
+    {
+        "nome": "São Paulo",
+    },
+    {
+        "$set": {
+            "cidades.$[]._id": new ObjectId()
+        }
+    }
+)
